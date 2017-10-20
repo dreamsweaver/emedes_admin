@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>App</title>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css" />
+<link rel="stylesheet"  href="css/jquery.mobile-git.css" />
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+<link type="text/css" href="css/bootstrap-timepicker.less" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/init-mobile.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body class="app">
+<!-- Visitas -->
+<div data-role="page" data-theme="g" id="lista-visitas" data-url="lista-visitas">
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html#agenda" data-transition="flip" class="btn btn-default menu-movil-btn"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Estado de las visitas</h2>
+					<p class="centered-title">Las visitas mostradas aquí son las recientes y las más próximas a realizarse (se limita a 100 visitas para no sobrecargar el teléfono o tablet).</p>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<form>
+						<input id="filterTable-visitas" data-type="search" type="search" class="underbar">
+					</form>
+					<table class="table table-stripe tabla-visitas" id="tabla-estados" data-filter="true" data-input="#filterTable-visitas" data-role="table">
+						<thead>
+							<tr>
+								<th data-priority="1">Información</th>
+								<th>Acciones</th>
+							</tr>
+						<thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+					<div data-role="popup" id="popupDialogVerde" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>¿Porqué este icono es así?</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">Significado del icono <i class="fa fa-bell proxima"></i></h3>
+							<p>La campana es verde indicando que aún falta un tiempo considerablemente largo para que se cumpla la fecha de esta visita.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+						</div>
+					</div>
+					<div data-role="popup" id="popupDialogRojo" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>¿Porqué este icono es así?</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">Significado del icono <i class="fa fa-bell curso"></i></h3>
+							<p>La campana es roja indicando que el tiempo para efectura la visita está próximo a suceder, este día se tiene que realizar.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+						</div>
+					</div>
+					<div data-role="popup" id="popupDialogEstrella" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>¿Porqué este icono es así?</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">Significado del icono <i class="fa fa-star"></i></h3>
+							<p>La estrella rellena indicando que se realizó a tiempo la visita.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+							<a href="comprobante-visita.html?id=" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b boton-editar" data-transition="flow">Comprobante</a>
+						</div>
+					</div>
+					<div data-role="popup" id="popupDialogEstrellaO" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>¿Porqué este icono es así?</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">Significado del icono <i class="fa fa-star-o"></i></h3>
+							<p>La estrella vacia indicando que no se realizó a tiempo la visita.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+						</div>
+					</div>
+					<div data-role="popup" id="popupEliminar" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>¿Eliminar?</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">¿Realmente desea eliminar?</h3>
+							<p>Este proceso es irreversible, una vez borrada una entrada no se podrá recuperar.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Cancelar</a>
+							<a href="" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a boton-del-visita" data-transition="flow">Eliminar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-grid="b">
+			<ul>
+				<li><a href="#lista-visitas" data-transition="flip" data-icon="grid" class="ui-link ui-btn ui-btn-active">Estado Visitas</a></li>
+				<li><a href="#programar-visita" data-transition="flip" class="ui-link ui-btn" data-icon="calendar">Nueva cita</a></li>
+				<li><a href="#lista-cartera" data-transition="flip" data-icon="user" class="ui-link ui-btn">Clientes</a></li>
+			</ul>
+		</div>
+		<div data-role="navbar" data-grid="a" data-theme="b">
+			<ul>
+				<li><a href="usuarios.html" data-transition="flip" class="ui-link ui-btn">Nuevo usuario</a></li>
+				<li><a href="usuarios.html#lista-usuarios" data-transition="flip" class="ui-link ui-btn">Ver usuarios</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Reprogramar visita -->
+<!-- Cartera cliente -->
+<div data-role="page" data-theme="g" id="lista-cartera" data-url="lista-cartera">
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html#agenda" data-transition="flip" class="btn btn-default menu-movil-btn"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Cartera de clientes</h2>
+					<p class="centered-title">Esta es la lista de clientes a los que puedes visitar (La lista puede ser bastante larga y hacer que el telefono se comporte lento).</p>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<form>
+						<input id="filterTable-clientes" data-type="search" type="search" class="underbar">
+					</form>
+					<table class="table table-stripe tabla-visitas" id="mis-clientes" data-filter="true" data-input="#filterTable-clientes" data-role="table">
+						<thead>
+							<tr>
+								<th data-priority="1">Información</th>
+								<th>Acciones</th>
+							</tr>
+						<thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+					<div data-role="popup" id="popupEliminarCliente" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>¿Eliminar?</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">¿Realmente desea eliminar?</h3>
+							<p>Este proceso es irreversible, una vez borrada una entrada no se podrá recuperar.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Cancelar</a>
+							<a href="" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a boton-del-cliente" data-transition="flow">Eliminar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-grid="b">
+			<a href="#agregar-cliente" class="ui-link ui-btn blue-btn full-btn">Agregar cliente <i class="fa fa-users"></i></a>
+			<ul>
+				<li><a href="#lista-visitas" data-transition="flip" data-icon="grid" class="ui-link ui-btn">Estado Visitas</a></li>
+				<li><a href="#programar-visita" data-transition="flip" class="ui-link ui-btn" data-icon="calendar">Nueva cita</a></li>
+				<li><a href="#lista-cartera" data-transition="flip" data-icon="user" class="ui-link ui-btn ui-btn-active">Clientes</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Reprogramar visita -->
+<div data-role="page" data-theme="g" id="programar-visita" data-url="programar-visita" >
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html" class="btn btn-default"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Programar una visita</h2>
+					<p class="centered-title">Indica la fecha, hora y cliente a visitar y quién será el visitador.</p>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<form action="" method="post" data-ajax="false" id="programar-form">
+						<label for="cambio-fecha">Escoge la nueva fecha</label>
+						<input type="text" class="text-input underbar" id="cambio-fecha" name="cambio-fecha" data-inline="true" data-role="date" data-date-format="yy-mm-dd" />
+						<label for="cambio-hora">Escoge la nueva hora</label>
+						<input type="text" class="text-input underbar timepicker" maxlength="5" id="cambio-hora" name="cambio-hora" placeholder="HH:mm" />
+						<br>
+						<label for="cliente-programar">Cliente</label>
+						<select id="cliente-programar">
+							
+						</select>
+						<br>
+						<label for="empleado-programar">Empleado encargado de visitas</label>
+						<select id="empleado-programar">
+							
+						</select>
+					</form>
+					<div data-role="popup" id="popupDialogError" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>Error</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">Error en el envío <i class="fa fa-bam"></i></h3>
+							<p>Ha ocurrido un error en el envío.</p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+							<a href="" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a programar-send-btn">Reintentar <i class="fa fa-send"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<a href="" class="ui-link ui-btn blue-btn full-btn programar-send-btn">Programar <i class="fa fa-send"></i></a>
+		<div data-role="navbar" data-grid="b">
+			<ul>
+				<li><a href="#lista-visitas" data-transition="flip" data-icon="grid" class="ui-link ui-btn">Estado Visitas</a></li>
+				<li><a href="#programar-visita" data-transition="flip" class="ui-link ui-btn ui-btn-active" data-icon="calendar">Nueva cita</a></li>
+				<li><a href="#lista-cartera" data-transition="flip" data-icon="user" class="ui-link ui-btn">Clientes</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div data-role="page" data-theme="g" id="agregar-cliente" data-url="agregar-cliente" >
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html" class="btn btn-default"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Crear cliente</h2>
+					<p class="centered-title">Podrás un cliente y asociarlo a un usuario.</p>
+					<br>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h3 id="nombre-empresa"></h3>
+					<form action="" method="post">
+						<label for="empresa-registrar">Nombre empresa</label>
+						<input type="text" class="text-input underbar" id="empresa-registrar" name="empresa-registrar" placeholder="Nombre de la empresa" />
+						<label for="nombre-encargado">Nombre encargado</label>
+						<input type="text" class="text-input underbar" id="nombre-encargado" name="nombre-encargado" placeholder="Nombre del encargado de recibir las visitas" />
+						<label for="email-encargado">Email encargado</label>
+						<input type="email" class="text-input underbar" id="email-encargado" name="email-encargado" placeholder="Email del encargado de recibir las visitas" />
+						<label for="telefono-encargado">Teléfono cliente</label>
+						<input type="tel" class="text-input underbar" id="telefono-encargado" name="telefono-encargado" placeholder="Teléfono de la empresa" />
+						<br>
+						<label for="tipo-cliente">Tipo de cliente</label>
+						<select id="tipo-cliente">
+							<option value="activo">Activo</option>
+							<option value="prospecto">Prospecto</option>
+						</select>
+						<br>
+						<label for="empleado-cliente">Empleado encargado de visitas</label>
+						<select id="empleado-cliente">
+							
+						</select>
+					</form>
+					<div data-role="popup" id="popupDialogError" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+						<div data-role="header" data-theme="a">
+							<h1>Error</h1>
+						</div>
+						<div role="main" class="ui-content">
+							<h3 class="ui-title">Error en el envío <i class="fa fa-bam"></i></h3>
+							<p class="mensaje"></p>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+							<a href="" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a editcliente-send-btn">Reintentar <i class="fa fa-send"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-grid="a">
+			<ul>
+				<li><a href="" class="ui-link ui-btn blue-btn editcliente-send-btn">Registrar <i class="fa fa-send"></i></a></li>
+				<li><a href="app.html#lista-cartera" data-transition="flip" class="ui-link ui-btn red-btn">Regresar <i class="fa fa-rotate-left"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="js/lang-all.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.js"></script>
+<script src="js/jquery.ui.datepicker.js"></script>
+<script src="js/jquery.mobile.datepicker.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

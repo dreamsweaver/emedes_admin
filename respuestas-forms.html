@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Agenda</title>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css" />
+<link rel="stylesheet"  href="css/jquery.mobile-git.css" />
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/init-mobile.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!-- Respuestas forms éxito -->
+<div data-role="page" data-theme="g" id="respuesta-exito" data-url="respuesta-exito" >
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html" class="btn btn-default"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Confirmación de envío</h2>
+					<p class="centered-title">Se ha realizado con éxito la operación solicitada.</p>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h1 class="exito-response"><i class="fa fa-check-circle"></i></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<a href="app.html" class="ui-btn ui-icon-back ui-btn-icon-left full-btn red-btn">Regresar</a>
+	</div>
+</div>
+<!-- Respuestas forms éxito -->
+<div data-role="page" data-theme="g" id="respuesta-error" data-url="respuesta-error" >
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html" class="btn btn-default"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Error en el envío</h2>
+					<p class="centered-title">No se ha realizado la operación solicitada. Por favor vuelva a intentarlo nuevamente</p>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h1 class="error-response"><i class="fa fa-times-circle"></i></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<a href="javascript:history.back();" class="ui-btn ui-icon-back ui-btn-icon-left full-btn red-btn">Regresar</a>
+	</div>
+</div>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="js/lang-all.js"></script>
+<script src="js/jquery.ui.datepicker.js"></script>
+<script src="js/jquery.mobile.datepicker.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

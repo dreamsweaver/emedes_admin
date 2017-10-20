@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reprogramar</title>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css" />
+<link rel="stylesheet"  href="css/jquery.mobile-git.css" />
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/init-mobile.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!-- Reprogramar visita -->
+<div data-role="page" data-theme="g" id="nueva-cita" data-url="nueva-cita" >
+	<div data-role="header">
+		<a href="" class="reload ui-link ui-btn-left ui-btn ui-shadow ui-corner-all"><i class="fa fa-refresh"></i></a>
+		<h1>Admin Main</h1>
+		<a href="" class="logout ui-link ui-btn-right ui-btn ui-shadow ui-corner-all">Salir <i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<br>
+				<div class="col-xs-10 col-sm-10">
+						<img src="images/logo.png" class="responsive" />
+				</div>
+				<div class="col-xs-2 col-sm-2">
+					<a href="app.html" class="btn btn-default"><i class="fa fa-bars"></i></a>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Reprogramar visita</h2>
+					<p class="centered-title">Indica la fecha y el motivo del cambio para visita.</p>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<form action="" method="post">
+						<label for="cambio-fecha">Escoge la nueva fecha</label>
+						<input type="text" class="text-input underbar" id="cambio-fecha" name="cambio-fecha" data-inline="true" data-role="date" />
+						<label for="cambio-hora">Escoge la nueva hora</label>
+						<input type="text" class="text-input underbar" id="cambio-hora" name="cambio-hora" placeholder="HH:mm" />
+						<label for="motivo-cambio">Motivo del cambio</label>
+						<textarea cols="25" rows="7" id="motivo-cambio" name="motivo-cambio"></textarea>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" data-grid="a">
+			<ul>
+				<li><a href="#lista-visitas" data-transition="flip" class="ui-link ui-btn blue-btn">Reprogramar <i class="fa fa-send"></i></a></li>
+				<li><a href="app.html#lista-visitas" data-transition="flip" class="ui-link ui-btn red-btn">Regresar <i class="fa fa-rotate-left"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="js/lang-all.js"></script>
+<script src="js/jquery.ui.datepicker.js"></script>
+<script src="js/jquery.mobile.datepicker.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

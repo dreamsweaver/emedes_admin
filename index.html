@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Inicio de sesión</title>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="PushNotification.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/init-mobile.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body class="home">
+<div data-role="page" data-theme="g" id="login-page">
+	<div data-role="header">
+		<h1>Login</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12">
+					<h2 class="centered-title strong">Administrador Control de visitas</h2>
+					<div class="logo">
+						<img src="images/logo.png" class="responsive" />
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12">
+					<div id="login-form">
+						<input type="text" class="text-input underbar" placeholder="Usuario" name="user" id="user" value="">
+						<input type="password" class="text-input underbar" placeholder="Contraseña" name="pass" id="pass" value="" />
+						<br>
+						<button type="submit" id="sendLogin" class="btn btn-primary btn-lg btn-full-width">Iniciar sesión</button>
+						<br>
+					</div>
+				</div>
+				<div data-role="popup" id="popupLogin" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+					<div data-role="header" data-theme="a">
+						<h1>¡Error!</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Error al iniciar sesión <i class="fa fa-ban"></i></h3>
+						<p>Verifica los datos de acceso para tu cuenta, si te equivocas varias veces tu cuenta se bloqueará como medida de seguridad.</p>
+						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Aceptar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>
