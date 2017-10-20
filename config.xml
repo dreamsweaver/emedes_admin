@@ -55,7 +55,6 @@
     
 	<access uri="*" subdomains="true" />
 	<access origin="http://appemedes.audiolabsv.com" />
-	<gap:plugin name="com.phonegap.plugins.pushplugin"/> 
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
