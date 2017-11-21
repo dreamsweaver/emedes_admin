@@ -40,7 +40,7 @@ jQuery(document).ready(function(e) {
 						localStorage.setItem('wordpress_loggedin_admin', data.cookie);
 						localStorage.setItem('app_user_id', data.user.id);
 						check_role('administrator');
-						set_deviceid(data.user.id);
+						//set_deviceid(data.user.id);
 						window.location.href = 'app.html';
 					} else {
 						jQuery( "#popupLogin" ).popup( "open" );
