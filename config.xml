@@ -53,8 +53,8 @@
     
     <string>100</string>
     
-	<access uri="*" subdomains="true" />
-	<access origin="http://appemedes.audiolabsv.com" />
+	<access subdomains="true" uri="*" />
+    <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
